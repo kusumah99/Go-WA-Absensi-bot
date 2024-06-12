@@ -1,0 +1,5 @@
+package dbservice
+
+func PrepareTable() {
+
+}

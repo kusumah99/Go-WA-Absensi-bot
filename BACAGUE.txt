@@ -1,0 +1,10 @@
+Mengawali project. Setelah bikin file go, pake go mod init
+Env GOPATH di isi dengan path project, supaya package yang terdownload ("pkg") perada di folder project, gak berada di folder ROOT go
+
+Model modular versi baru:
+Modul-modul sudah tidak perlu go mod tidy lagi di setiap foldernya, tapi di parent folder pake perintah "go work init absensi"
+Dan pake perintah "go work sync" di parent folder untuk pengganti perintah "go mod tidy" di setiap folder modulnya.
+
+Untuk runing:
+- Pake air langsung aja
+- Pake "go run ." atau "go run main.go event_handler.go"
