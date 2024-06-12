@@ -33,7 +33,7 @@ func EventsHandler(evt interface{}) {
 		fmt.Println("Logged out, attempting to relogin in 10 seconds....")
 		time.Sleep(10 * time.Second)
 		go func() {
-			relogin()
+			WaLogin()
 		}()
 		break
 	case *events.Disconnected:
@@ -41,7 +41,7 @@ func EventsHandler(evt interface{}) {
 		fmt.Println("Disconnected, attempting to reconnect in 10 seconds...")
 		time.Sleep(10 * time.Second)
 		go func() {
-			relogin()
+			WaLogin()
 		}()
 		break
 	case *events.Message:
@@ -59,7 +59,11 @@ func EventsHandler(evt interface{}) {
 	}
 }
 
-func relogin() {
+func WaDisconnect() {
+	WaClient.Disconnect()
+}
+
+func WaLogin() {
 	var err error
 	if WaClient != nil && WaClient.IsConnected() {
 		WaClient.Disconnect()
